@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #abd1c6 !important;
+}
+/* main */
+.container-fluid{
+    margin: 0 !important;
+    padding: 0 !important;
+ }
+
+ .btn {
+     color: #f9bc60 !important;
+     background-color: #004643 !important;
+     border-color: #f9bc60 !important;
+ }
+.btn:hover {
+    color: #f9bc60 !important;
+    background-color: #abd1c6 !important;
+    border-color: #004643 !important;
+}
+/*navbar */
+.navbar{
+    background-color: #004643;
+}
+.navbar-brand img{
+    height: 100px;
+}
+.navbar-toggler 
+{   
+    background-color: #f9bc60 !important;
+    color:#f9bc60 !important;
+}
+.collapse{
+    display: flex;
+    justify-content: center;
+}
+.collapse a{
+    text-decoration: none;
+    color: #f9bc60;
+    line-height: 100%;
+}
+#navbarNav{
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#navbarNav li{
+    margin-left: 30px;
+}
+.nav-item a {
+        color: #f9bc60 !important;
+}
+/*search*/
+#search{
+    height: 600px;
+    background: url(/assets/images/the_district_brand/logo_transparent.png) no-repeat center;
+}
+#search .d-flex{
+    display: flex;
+    margin: auto;
+    height: 200px;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 450px;
+}
+/*menu*/
+.selection h1{
+    color: #001e1d;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.img-thumbnail{
+    margin-bottom: 30px;
+    border: #004643 5px solid !important;
+    background: #abd1c6 !important;
+}
+.img-thumbnail img{
+    height: 350px;
+    width: 100%;
+}
+.img-thumbnail h4{
+    color: #001e1d;
+    text-align: center;
+}
+.img-thumbnail a{
+    width: 100%;
+}
+/*footer*/
+.footer{
+    background: #001e1d;
+    color: #f9bc60;
+    line-height: 12px;
+}
+.footer .logo{
+    margin-top: 20px;
+    text-align: center;
+    flex-direction: row;
+
+}
+.footer .logo i{
+    font-size: 60px;
+    margin-right: 10px;
+}
+.footer p{
+    margin-left: 10px;
+}
+.footer .logo h4 {
+    margin: 0 auto ;
+} 
+.infos{
+    margin-top: 10px;
+}
+.formulaire{
+    margin:20px auto;
+}
+.formulaire h1{
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+.formulaire form{
+    background: #abd1c6;
+    height: 350px;
+    width: 460px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 10px auto;
+    border: 3px solid #004643;
+    border-radius: 2%;
+}
+.formulaire form label{
+    display: flex;    
+    margin: 20px 0 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #001e1d;
+    text-transform: uppercase;
+
+}
+
+.formulaire form input{
+    display: flex;    
+    margin-left:20px;
+    width: 300px;
+}
+
+.formulaire form button{
+    margin: 20px;
+    background-color: #004643;
+    color: #abd1c6;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-color: #f9bc60;
+}
+.connect{
+    margin-top: 20px;
+}
+
+
+ .card{
+    height: 450px;
+}
+.card img{
+    max-width: 100%;
+    height: 350px;
+}

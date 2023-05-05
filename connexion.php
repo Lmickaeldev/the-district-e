@@ -3,6 +3,7 @@ include_once"./controllers/connexion_script.php";
 include_once"./controllers/head_script.php";
 include_once"./controllers/nav_script.php";
 
+
 ?>
 <div class="container formulaire">
             <div id="search">  
@@ -24,7 +25,9 @@ include_once"./controllers/nav_script.php";
 
         <p>pas encore inscrit ? / <a href="inscription.php">inscription</a></p>
         <p>mots de passe perdu ? / <a href="#">ici</a></p>
-
+        <?php if (isset($errorMessage)) { ?>
+    <div class="alert alert-danger"><?= $errorMessage ?></div>
+<?php } ?>
         </form>
         </div>
     </div>

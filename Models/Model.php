@@ -22,6 +22,16 @@ class Model extends Db
             ORDER BY nbr_vente DESC LIMIT 3; ');
         return $query->fetchAll();
         }
+    //function ppour afficher les comande en fonction de leur etat,le nom du client trié par ordre decroisant
+        public function comd()
+        {
+            $query = $this->requete('    SELECT commandes.id, plats.libelle AS nom_plat, categories.libelle AS categorie, commandes.quantite, commandes.total, commandes.date_commande, livraison.nom AS etat, utilisateurs.username AS nom_client FROM commandes JOIN plats ON commandes.id_plat = plats.id JOIN categories ON plats.id_categorie = categories.id JOIN livraison ON commandes.etat = livraison.id JOIN utilisateurs ON commandes.id_client = utilisateurs.id ORDER BY `commandes`.`date_commande` DESC;
+            ');
+        return $query->fetchAll();
+        }
+
+    //SELECT commandes.id, plats.libelle AS nom_plat, categories.libelle AS categorie, commandes.quantite, commandes.total, commandes.date_commande, livraison.nom AS etat, utilisateurs.username AS nom_client FROM commandes JOIN plats ON commandes.id_plat = plats.id JOIN categories ON plats.id_categorie = categories.id JOIN livraison ON commandes.etat = livraison.id JOIN utilisateurs ON commandes.id_client = utilisateurs.id ORDER BY `commandes`.`date_commande` DESC;
+
 
     //le read du CRUD
     //on recupere les données

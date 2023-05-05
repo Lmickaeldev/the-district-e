@@ -15,7 +15,7 @@ require_once "./controllers/nav_script.php";
 ?>
 <h1 style="text-align:center; color:red;"> ici une image + search input</h1>
 <div class="container">
-    <div class="row plat">
+    <div class="row cate">
         <?php foreach ($plat as $platall) :
             $obj = (object) $platall; ?>
             <div class="col-lg-4 card  ">

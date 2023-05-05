@@ -21,12 +21,16 @@ $most_plat = $mostplat->most_pop_plat();
 require_once "./controllers/head_script.php";
 require_once "./controllers/nav_script.php";
 ?>
-
-<h1 style="text-align:center;color:red;"> ici une image + search input</h1>
-
-
-
+<div class="row">
+    <div id="search">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="je cherche..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">rechercher</button>
+        </form>
+    </div>
+</div>
 <div class="container">
+    <h1 class="desctype">categorie</h1>
     <div class="row cate">
         <?php foreach ($categories as $cat) :
             $obj = (object) $cat; ?>
@@ -43,7 +47,7 @@ require_once "./controllers/nav_script.php";
 </div>
 <h1 style="text-align:center;color:red;"> modifier pour n'avoir que 6 cat !!!</h1>
 <div class="container">
-    <div class="row mplat">
+    <div class="row cate">
         <?php foreach ($most_plat as $mplat) :
             $obj = (object) $mplat; ?>
             <div class="col-lg-4 card  ">

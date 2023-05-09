@@ -1,32 +1,50 @@
 <?php
-//on verifie si le formulaire a été envoyer 
-if (!empty($_POST)) {
-    //le formulaire a été envoyé
-    //on verifie que all champs ont bien été remplis,
-    if (isset($_POST['email'], $_POST['pass']) 
-    && !empty($_POST["email"])
-    && !empty($_POST["pass"])
-) {
-        //on verifie que l'email est valide
-        if (!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)) {
-            die("ce n'est pas un email");
-        }
+session_start();
+use App\Autoloader;
+use App\Models\UtilisateursModel;
 
-        //on ce connecte a la bdd
-        require_once"Core/Db.php";
+require_once "../Autoloader.php";
+Autoloader::register();
+$test= new UtilisateursModel;
 
-        $sql = "SELECT * FROM `user` WHERE `email`= :email";
-
-        $query = $db->prepare($sql);
-        $query->bindValue(":email",$_POST["email"], PDO::PARAM_STR);
-        //ont execute
-
-        $query->execute();
-
-        $user = $query->fetch();
-
-
-        var_dump($user);
-    }
+// la fonction isset() vérifiera que ces données existent.
+if ( !isset($_POST['inputEmail'], $_POST['inputPassword']) ) {
+    
+    exit('Vous devez entrer votre email et votre mot de passe!');
+}else{
+    $email = $_POST['inputEmail'];
+	$password = $_POST['inputPassword'];
 }
+
+
+$stmt =$test->user_co($email);
+ var_dump($stmt);
+    var_dump($password);
+  
+
+    if($stmt){
+        if(
+            // password_verification($password, $user["password"])
+            password_verify($password, $stmt["pass"])
+            )
+        {
+            $_SESSION['auth'] = $stmt;
+            $_SESSION['flash']['success'] = "Bonjour " .$stmt["username"]. ". Vous êtes maintenant connecté";
+            
+            header('Location: ../index.php');
+            //echo "connection reussi";
+            exit();
+        }else{
+            $_SESSION['flash']['danger'] = 'Les données envoyées sont invalides';
+
+            //header('Location: ../connexion.php');
+            echo'Les données envoyées sont invalides';
+         }
+    }else{
+            $_SESSION['flash']['danger'] = 'Authentification impossible!';
+
+            //header('Location: ../connexion.php');
+            echo'auth impossible';
+         }
+
 ?>

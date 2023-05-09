@@ -1,4 +1,5 @@
 <?php
+session_start();
 use App\Autoloader;
 use App\Models\CategoriesModel;
 use App\Models\CommandesModel;

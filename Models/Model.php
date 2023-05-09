@@ -22,6 +22,7 @@ class Model extends Db
             ORDER BY nbr_vente DESC LIMIT 3; ');
         return $query->fetchAll();
         }
+
     //function ppour afficher les comande en fonction de leur etat,le nom du client trié par ordre decroisant
         public function comd()
         {
@@ -41,6 +42,7 @@ class Model extends Db
         return $query->fetchAll();
     }
     
+
 
     //afficher tout les données de la table
     public function findBy(array $criteres)
@@ -156,6 +158,19 @@ class Model extends Db
         return $this;
     }
 
+
+    public function user_co($email){
+        // on recupere l'instance de Db
+        $this->db = Db::getInstance();
+        $query = $this->db->prepare('SELECT * FROM utilisateurs WHERE mail=?;');
+        $query->execute(array($email));
+        $tab = $query->fetch();
+        $query->closeCursor();
+        return $tab;
+      }
+    
+     
+    
     
 }
 

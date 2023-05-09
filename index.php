@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 use App\Autoloader;
 use App\Models\CategoriesModel;
 use App\Models\CommandesModel;
@@ -21,6 +21,17 @@ $most_plat = $mostplat->most_pop_plat();
 require_once "./controllers/head_script.php";
 require_once "./controllers/nav_script.php";
 ?>
+<?php if(isset($_SESSION['flash']['success'])) {
+    $message = $_SESSION['flash']['success'];
+    unset($_SESSION['flash']['success']);
+
+    ?>
+    <div class="alert alert-success" role="alert">
+        <?php echo $message; ?>
+    </div>
+    
+<?php }
+?>
 <div class="row">
     <div id="search">
         <form class="d-flex" role="search">
@@ -31,6 +42,7 @@ require_once "./controllers/nav_script.php";
 </div>
 <div class="container">
     <h1 class="desctype">categorie</h1>
+    
     <div class="row cate">
         <?php foreach ($categories as $cat) :
             $obj = (object) $cat; ?>

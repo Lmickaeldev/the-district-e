@@ -15,7 +15,6 @@ $id = $_GET['id'];
 $platdetail = new PlatsModel();
 
 $plat = $platdetail->find($id);
-
 // var_dump($plat);
 $obj = (object) $plat;
 ?>

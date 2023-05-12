@@ -33,6 +33,11 @@ class Model extends Db
 
     //SELECT commandes.id, plats.libelle AS nom_plat, categories.libelle AS categorie, commandes.quantite, commandes.total, commandes.date_commande, livraison.nom AS etat, utilisateurs.username AS nom_client FROM commandes JOIN plats ON commandes.id_plat = plats.id JOIN categories ON plats.id_categorie = categories.id JOIN livraison ON commandes.etat = livraison.id JOIN utilisateurs ON commandes.id_client = utilisateurs.id ORDER BY `commandes`.`date_commande` DESC;
 
+    //requete pour affiché les commande pour le client  
+    public function comdid(int $id)
+    {
+        return $this->requete("SELECT commandes.id, plats.libelle AS nom_plat, categories.libelle AS categorie, commandes.quantite, commandes.total, commandes.date_commande, livraison.nom AS etat, utilisateurs.username AS nom_client FROM commandes JOIN plats ON commandes.id_plat = plats.id JOIN categories ON plats.id_categorie = categories.id JOIN livraison ON commandes.etat = livraison.id JOIN utilisateurs ON commandes.id_client = utilisateurs.id  WHERE id_client = $id")->fetch();
+    }
 
     //le read du CRUD
     //on recupere les données
@@ -144,7 +149,7 @@ class Model extends Db
     }
 
     // methode d'hydratation CREATE
-    public function hydrate(array $donnees){
+    public function hydrateC(array $donnees){
         foreach($donnees as $key => $value){
             //on recupere le nom du setter corespondant a la clef (key)
             //libelle -> setlibelle
@@ -157,7 +162,21 @@ class Model extends Db
         }
         return $this;
     }
-
+    // methode d'hydratation update
+    public function hydrate(array $donnees){
+        foreach($donnees as $key => $value){
+            //on recupere le nom du setter correspondant a la clef (key)
+            //libelle -> setLibelle
+            $setter = 'set'.ucfirst($key);
+    
+            //on verifie si le setter existe
+            if (method_exists($this, $setter)) {
+                //on appel le setter
+                $this->$setter($value);
+            }
+        }
+        return $this;
+    }
 
     public function user_co($email){
         // on recupere l'instance de Db

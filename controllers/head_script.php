@@ -17,7 +17,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- link css -->
     <link rel="stylesheet" href="/assets/css/style.css">
-    <title><?=$title?></title>
+    <title>district</title>
 </head>
 
 <body>

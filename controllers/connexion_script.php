@@ -35,16 +35,16 @@ $stmt =$test->user_co($email);
             //echo "connection reussi";
             exit();
         }else{
-            $_SESSION['flash']['danger'] = 'Les données envoyées sont invalides';
+            $_SESSION['flash']['danger'] = 'Le mails ou mots de passe envoyées est invalides';
 
-            //header('Location: ../connexion.php');
-            echo'Les données envoyées sont invalides';
+            header('Location: ../connexion.php');
+            //echo'Les données envoyées sont invalides';
          }
     }else{
             $_SESSION['flash']['danger'] = 'Authentification impossible!';
 
-            //header('Location: ../connexion.php');
-            echo'auth impossible';
+            header('Location: ../connexion.php');
+            //echo'auth impossible';
          }
 
 ?>

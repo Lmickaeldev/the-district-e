@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "./controllers/head_script.php";
 require_once "./controllers/nav_script.php";
 ?>

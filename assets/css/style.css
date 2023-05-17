@@ -97,7 +97,7 @@ body{
 }
 /*footer*/
 .footer{
-    position: fixed; 
+    position: sticky; 
     bottom: -5px;
     background: #001e1d;
     color: #f9bc60;
@@ -196,6 +196,7 @@ body{
     width: auto;
     justify-content: center;
 }
+
 .tab-content{
     height: 100vh;
 }
@@ -220,7 +221,44 @@ body{
     height: 50px;
     width: 100%;
 }
+.tab{
+    height: 60vh;
+}
 .tab img{
     height: auto;
     width: 50px;
+}
+.detailplat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img-thumbnail{
+    height: 450px;
+    width: auto;
+}
+.price{
+    color: #f9bc60;
+    background-color: #004643;
+    position: absolute;
+    /* bottom: 139px; */
+    top: 40px;
+    right: 0;
+    font-size: 30px;
+    border: #abd1c6 solid 5px;
+    border-radius: 5px;
+}
+.detailplat .pricedetail{
+    
+    color: #004643;
+    background-color: #f9bc60;
+    font-size: 30px;
+    border: #004643 solid 5px;
+    border-radius: 5px;
+}
+.platdet{
+    height: 70vh;
+}
+.contact{
+    height: 65vh;
 }

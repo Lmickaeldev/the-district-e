@@ -109,7 +109,7 @@ if (!isset($_SESSION['auth']) && isset($_SESSION['panier'])) {
         </section>
         <h2>pour un montant total de la commande :'.$total.' euro</h2>
     
-        a ben été prise en compte le '.$date.'
+        a bien été prise en compte le '.$date.'
     </body>
     </html>';
     
@@ -124,7 +124,7 @@ if (!isset($_SESSION['auth']) && isset($_SESSION['panier'])) {
     ->setQuantite($quantity)
     ->setTotal($total)
     ->setDate_commande($formattedDate)
-    ->setEtat('1')
+    ->setEtat('2')
     ->setId_client($idc);
     $commande->create($add);
     $_SESSION['flash']['success'] = 'votre commande viens d\'etre enregistré ';

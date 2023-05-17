@@ -25,7 +25,7 @@ require_once "./controllers/nav_script.php";
                 <div class="imgcat">
                     <img src="assets/images/category/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>">
                 </div>
-                <a class="btn" href="categoriedetails.php?id=<?= $obj->id ?>">consulter</a>
+                <a class="btn" href="categoriedetails.php?id=<?= $obj->id ?>">Voir les plats</a>
             </div>
         <?php endforeach; ?>
     </div>

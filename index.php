@@ -57,7 +57,7 @@ require_once "./controllers/nav_script.php";
         <?php endforeach; ?>
     </div>
 </div>
-<h1 style="text-align:center;color:red;"> modifier pour n'avoir que 6 cat !!!</h1>
+
 <div class="container">
     <div class="row cate">
         <?php foreach ($most_plat as $mplat) :

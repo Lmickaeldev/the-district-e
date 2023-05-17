@@ -36,8 +36,8 @@ require_once "./controllers/nav_script.php";
                     <div class="imgplat">
                         <img src="assets/images/food/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>">
                     </div>
-                    <p><?= $obj->description ?></p>
-                    <p><?= number_format($obj->prix,2,',')  ?> €</p>
+                    <!-- <p><?= $obj->description ?></p> -->
+                    <p class="price"><?= number_format($obj->prix,2,',')  ?> €</p>
                     <a class="btn btn-primary" href="platsdetail.php?id=<?= $obj->id ?>">details</a>
                     <a class="btn btn-primary" href="/controllers/commande_script.php?id=<?= $obj->id ?>">commander</a>
             </div>

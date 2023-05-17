@@ -57,10 +57,11 @@ body{
         color: #f9bc60 !important;
 }
 /*search*/
-#search{
+#searchid{
     height: 190px;
     background: url(/assets/images/the_district_brand/logo_transparent.png) no-repeat center;
 }
+
 #search .d-flex{
     display: flex;
     margin: auto;
@@ -171,13 +172,23 @@ body{
 
 
  .card{
-    height: 500px;
+    height: auto;
     width: 420px;
     margin: 10px;
+    background: #f9bc60;
 }
-.card img{
+.card-header{
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #004643;
+    color: #f9bc60;
+}
+.card img{   
     max-width: 100%;
     height: 350px;
+}
+.card .btn{
+    margin:20px ;
 }
 .cate {
     display: flex;
@@ -199,4 +210,17 @@ body{
 }
 .tab-content {
     margin: auto 21px;
+}
+.search-form{
+    margin: 20px auto;
+    text-align: center;
+}
+.cmd{
+    display: flex;
+    height: 50px;
+    width: 100%;
+}
+.tab img{
+    height: auto;
+    width: 50px;
 }

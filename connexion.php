@@ -35,9 +35,6 @@ session_start();
                         <div class="row mb-3">
                           <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                           <div class="col-sm-10">
-                            <!-- On doit donner des noms aux champs de saisie pour que le serveur puisse les reconnaître et 
-                                récupérer ainsi leurs valeurs (avec, par ex., $_POST['inputEmail'] ). 
-                            -->
                             <input type="email" name="inputEmail" class="form-control" id="inputEmail" required>
                             <p id="error_email" ></p>
                           </div>

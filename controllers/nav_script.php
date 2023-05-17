@@ -18,40 +18,43 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contact</a>
                 </li>
-
-
-
-
+                
+                
+                
+                
                 <?php
                 if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
-                ?>
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="admin.php">admin</a>
                     </li>
-                <?php
+                    <?php
                 }
                 ?>
 
-                <?php
+<?php
 
-                if (isset($_SESSION['auth'])) :
-                    $utilisateur = $_SESSION['auth']['username'];
-                ?>
+if (isset($_SESSION['auth'])) :
+    $utilisateur = $_SESSION['auth']['username'];
+    ?>
                     <li>
                         <a href="profil.php"><?= $utilisateur ?></a>
                         <a href="/controllers/deconect_script.php"><input type="button" class="btn btn-secondary btn-sm" value="Deconnexion"></input></a>
                     </li>
-                <?php endif; ?>
-                <?php
+                    <?php endif; ?>
+                    <?php
                 if (!isset($_SESSION['auth']) ) {
-                ?>
+                    ?>
                     <li class="nav-item">
-                    <a href="connexion.php"><input type="button" class="btn btn-secondary btn-sm" value="connexion"></input></a>
+                        <a href="connexion.php"><input type="button" class="btn btn-secondary btn-sm" value="connexion"></input></a>
                     </li>
-                <?php
+                    <?php
                 }
                 ?>
 
+                <li>
+                <a href="panier.php"><i class="fa fa-basket-shopping"></i></a>
+                </li>
             </ul>
         </div>
     </div>

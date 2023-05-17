@@ -24,7 +24,7 @@ $stmt =$test->user_co($email);
 
     if($stmt){
         if(
-            // password_verification($password, $user["password"])
+            
             password_verify($password, $stmt["pass"])
             )
         {
@@ -38,13 +38,13 @@ $stmt =$test->user_co($email);
             $_SESSION['flash']['danger'] = 'Le mails ou mots de passe envoyées est invalides';
 
             header('Location: ../connexion.php');
-            //echo'Les données envoyées sont invalides';
+            
          }
     }else{
             $_SESSION['flash']['danger'] = 'Authentification impossible!';
 
             header('Location: ../connexion.php');
-            //echo'auth impossible';
+            
          }
 
 ?>

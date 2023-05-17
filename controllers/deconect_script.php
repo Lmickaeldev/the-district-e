@@ -2,15 +2,11 @@
 
 if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 
-unset($_SESSION["login"]);
-unset($_SESSION["prenom"]);
 
-    if (ini_get("session.use_cookies"))
-    {
-        setcookie(session_name(), '', time()-42000);
-    }
+unset($_SESSION["auth"]);
 
-session_destroy();
+
+session_unset();
 
 header("Location: ../index.php");
 

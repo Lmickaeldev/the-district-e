@@ -33,9 +33,9 @@ require_once "./controllers/nav_script.php";
 <?php }
 ?>
 <div class="row">
-    <div id="search">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="je cherche..." aria-label="Search">
+    <div id="searchid">
+        <form class="d-flex" method="GET" action="recherche_plat.php">
+            <input class="form-control me-2" type="search" placeholder="je cherche..." aria-label="Search" id="search" name="search">
             <button class="btn btn-outline-success" type="submit">rechercher</button>
         </form>
     </div>
@@ -47,12 +47,12 @@ require_once "./controllers/nav_script.php";
         <?php foreach ($categories as $cat) :
             $obj = (object) $cat; ?>
             <div class="col-lg-4 card  ">
-                <a href="/?page=detail&c_id=<?= $obj->id ?>">
-                    <h5 class="card-header"><?= $obj->libelle ?></h5>
-                    <div class="imgcat">
-                        <img src="assets/images/category/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>">
-                    </div>
-                </a>
+                <h5 class="card-header"><?= $obj->libelle ?></h5>
+                <div class="imgcat">
+                    <img src="assets/images/category/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>">
+                </div>
+                <a class="btn" href="categoriedetails.php?id=<?= $obj->id ?>">consulter</a>
+                
             </div>
         <?php endforeach; ?>
     </div>
@@ -63,12 +63,12 @@ require_once "./controllers/nav_script.php";
         <?php foreach ($most_plat as $mplat) :
             $obj = (object) $mplat; ?>
             <div class="col-lg-4 card  ">
-                <a href="/?page=detail&c_id=<?= $obj->id ?>">
-                    <h5 class="card-header"><?= $obj->libelle ?></h5>
-                    <div class="imgcat">
-                        <img src="assets/images/food/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>">
-                    </div>
-                </a>
+                <h5 class="card-header"><?= $obj->libelle ?></h5>
+                <div class="imgcat">
+                    <img src="assets/images/food/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>">
+                </div>
+                <a class="btn" href="platsdetail.php?id=<?= $obj->id ?>">consulter</a>
+
             </div>
         <?php endforeach; ?>
     </div>

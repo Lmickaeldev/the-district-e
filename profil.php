@@ -19,7 +19,7 @@ if (isset($_SESSION['auth'])) {
   $commodel = new CommandesModel;
   $com = $commodel->comdid($_SESSION['auth']['id']);
   
-  var_dump($com);
+  //var_dump($com);
 
   $obj = (object) $uti;
   ?>

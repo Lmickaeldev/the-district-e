@@ -1,34 +1,45 @@
 <?php
-session_start();
-//var_dump($_SESSION); 
-use App\Autoloader;
-use App\Models\UtilisateursModel;
-require_once "./Autoloader.php";
-Autoloader::register();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-if(isset($_SESSION['auth'])) 
-{
-  // L'utilisateur est connecté, permettre l'accès à la page du profil
-  ?>
-  <?php
-    require_once "./controllers/head_script.php";
-    require_once "./controllers/nav_script.php";
-    $utimodel = new UtilisateursModel;
-    $uti = $utimodel->find($_SESSION['auth']['id']);    
-    var_dump($uti);
-?>
-<h1>connexion au profil effectué </h1>
-  <?php
-} else {
-  // L'utilisateur n'est pas connecté en tant qu'administrateur, rediriger vers la page d'accueil ou afficher un message d'erreur
-  //header("Location: index.php"); // Redirige vers la page d'accueil
-  ?><h1>connexion au profil refusé</h1>
-  <?php
-  exit(); // Quitte le script pour éviter toute exécution supplémentaire
+require_once 'vendor/autoload.php';
+
+$mail = new PHPMailer(true);
+
+try {
+    // Configuration du serveur SMTP
+    $mail->isSMTP();
+    $mail->Host = 'localhost';
+    $mail->SMTPAuth = false;
+    $mail->Port = 1025;
+
+    // Expéditeur du mail
+    $mail->setFrom('from@thedistrict.com', 'The District Company');
+
+    // Destinataires
+    $mail->addAddress("client1@example.com", "Mr Client1");
+    $mail->addAddress("client2@example.com");
+
+    // Adresse de réponse
+    $mail->addReplyTo("reply@thedistrict.com", "Reply");
+
+    // CC & BCC
+    $mail->addCC("cc@example.com");
+    $mail->addBCC("bcc@example.com");
+
+    // Format HTML
+    $mail->isHTML(true);
+
+
+    // Sujet du mail
+    $mail->Subject = 'Test PHPMailer';
+
+    // Corps du message
+    $mail->Body = "On teste l'envoi de mails avec PHPMailer";
+
+    // Envoi du mail
+    $mail->send();
+    echo 'Email envoyé avec succès';
+} catch (Exception $e) {
+    echo "L'envoi de mail a échoué. L'erreur suivante s'est produite : ", $mail->ErrorInfo;
 }
-?>
-
-
-
-
-voir ajax pour update checkbox !!!

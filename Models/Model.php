@@ -188,7 +188,34 @@ class Model extends Db
         return $tab;
       }
     
-     
+      function search_plat($search){
+        $this->db = Db::getInstance();
+        $query = $this->db->prepare('SELECT * FROM plats WHERE libelle LIKE ? AND LOWER(plats.active) = "1"');
+        $query->bindValue(1, "%$search%");
+        $query->execute();
+        $tab = $query->fetchAll();
+        $query->closeCursor();
+        return $tab;
+    }
+    function search_cat($search){
+        $this->db = Db::getInstance();
+        $query = $this->db->prepare('SELECT * FROM categories WHERE libelle LIKE ? AND LOWER(plats.active) = "1"');
+        $query->bindValue(1, "%$search%");
+        $query->execute();
+        $tab = $query->fetchAll();
+        $query->closeCursor();
+        return $tab;
+    }
+    
+    public function panier($ids)
+{
+    $this->db = Db::getInstance();
+    //utilisation de rtrim suite a un probleme lors de l'exec pour uprimer des espace a droite apres mon ajouts 
+    $tablo = rtrim(str_repeat('?,', count($ids)), ',');
+    $query = $this->db->prepare("SELECT * FROM plats WHERE id IN ($tablo)");
+    $query->execute($ids);
+    return $query->fetchAll();
+}
     
     
 }

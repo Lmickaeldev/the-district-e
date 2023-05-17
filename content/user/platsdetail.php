@@ -3,11 +3,11 @@
 use App\Autoloader;
 use App\Models\PlatsModel;
 
-require_once "./Autoloader.php";
+require_once "../../Autoloader.php";
 Autoloader::register();
 
-require_once "./controllers/head_script.php";
-require_once "./controllers/nav_script.php";
+require_once "../../controllers/head_script.php";
+require_once "../../controllers/nav_script.php";
 
 
 $id = $_GET['id'];
@@ -28,7 +28,7 @@ $obj = (object) $plat;
     <div class="col-md-6 detailplat">
         <h2><?= $obj->libelle ?></h2>
         <div class="">
-            <img src="assets/images/food/<?= $obj->image ?>" class="img-thumbnail" alt="<?= $obj->image ?>">
+            <img src="../../assets/images/food/<?= $obj->image ?>" class="img-thumbnail" alt="<?= $obj->image ?>">
         </div>
 
     </div>
@@ -54,5 +54,5 @@ $obj = (object) $plat;
 
 
 <?php
-require_once "./controllers/footer_script.php";
+require_once "../../controllers/footer_script.php";
 ?>

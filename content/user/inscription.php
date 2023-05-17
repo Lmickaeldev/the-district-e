@@ -1,11 +1,11 @@
 <?php
-require_once"controllers/inscription_script.php";
+require_once"../../controllers/inscription_script.php";
 
 // $titre doit etre donner avant header.php
 $titre="Accueil";
-include_once"./controllers/head_script.php";
+include_once"../../controllers/head_script.php";
 // on inclus la navbar
-include_once"./controllers/nav_script.php";
+include_once"../../controllers/nav_script.php";
 
 // contenu de la page
 ?>
@@ -49,5 +49,5 @@ include_once"./controllers/nav_script.php";
 </form>
 
 <?php
-include_once"./controllers/footer_script.php";
+include_once"../../controllers/footer_script.php";
 ?>

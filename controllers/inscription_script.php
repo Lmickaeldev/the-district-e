@@ -35,7 +35,7 @@ if (!empty($_POST)) {
         $pass = password_hash($_POST["pass"], PASSWORD_ARGON2ID);
         
         //ont enregistre en bdd
-        require"Core/Db.php";
+        require"../../Core/Db.php";
 
         //on récupère l'instance de la connexion à la BDD
         $db = Db::getInstance();

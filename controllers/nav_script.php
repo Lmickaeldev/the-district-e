@@ -7,16 +7,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.php">Accueil</a>
+                    <a class="nav-link" aria-current="page" href="../../index.php">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="categories.php">Categories</a>
+                    <a class="nav-link" href="/content/user/categories.php">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="plats.php">Plats</a>
+                    <a class="nav-link" href="/content/user/plats.php">Plats</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.php">Contact</a>
+                    <a class="nav-link" href="/content/user/contact.php">Contact</a>
                 </li>
                 
                 
@@ -26,7 +26,7 @@
                 if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php">admin</a>
+                        <a class="nav-link" href="/content/admin/admin.php">admin</a>
                     </li>
                     <?php
                 }
@@ -38,7 +38,7 @@ if (isset($_SESSION['auth'])) :
     $utilisateur = $_SESSION['auth']['username'];
     ?>
                     <li>
-                        <a href="profil.php"><?= $utilisateur ?></a>
+                        <a href="/content/user/profil.php"><?= $utilisateur ?></a>
                         <a href="/controllers/deconect_script.php"><input type="button" class="btn btn-secondary btn-sm" value="Deconnexion"></input></a>
                     </li>
                     <?php endif; ?>
@@ -46,14 +46,14 @@ if (isset($_SESSION['auth'])) :
                 if (!isset($_SESSION['auth']) ) {
                     ?>
                     <li class="nav-item">
-                        <a href="connexion.php"><input type="button" class="btn btn-secondary btn-sm" value="connexion"></input></a>
+                        <a href="/content/user/connexion.php"><input type="button" class="btn btn-secondary btn-sm" value="connexion"></input></a>
                     </li>
                     <?php
                 }
                 ?>
 
                 <li>
-                <a href="panier.php"><i class="fa fa-basket-shopping"></i></a>
+                <a href="/content/user/panier.php"><i class="fa fa-basket-shopping"></i></a>
                 </li>
             </ul>
         </div>

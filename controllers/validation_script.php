@@ -69,7 +69,6 @@ if (!isset($_SESSION['auth']) && isset($_SESSION['panier'])) {
     
         // Destinataires
         $mail->addAddress($_SESSION['auth']['mail'],$_SESSION['auth']['username']);
-        $mail->addAddress("client2@example.com");
     
         // Adresse de réponse
         $mail->addReplyTo("reply@thedistrict.com", "Reply");

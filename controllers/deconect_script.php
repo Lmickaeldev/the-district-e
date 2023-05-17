@@ -8,6 +8,6 @@ unset($_SESSION["auth"]);
 
 session_unset();
 
-header("Location: ../index.php");
+header("Location: ../../index.php");
 
 ?>

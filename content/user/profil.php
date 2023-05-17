@@ -5,15 +5,15 @@ use App\Autoloader;
 use App\Models\CommandesModel;
 use App\Models\UtilisateursModel;
 
-require_once "./Autoloader.php";
+require_once "../../Autoloader.php";
 Autoloader::register();
 
 if (isset($_SESSION['auth'])) {
   // L'utilisateur est connecté, permettre l'accès à la page du profil
 ?>
   <?php
-  require_once "./controllers/head_script.php";
-  require_once "./controllers/nav_script.php";
+  require_once "../../controllers/head_script.php";
+  require_once "../../controllers/nav_script.php";
   $utimodel = new UtilisateursModel;
   $uti = $utimodel->find($_SESSION['auth']['id']);
   $commodel = new CommandesModel;
@@ -75,43 +75,8 @@ if (isset($_SESSION['auth'])) {
     </div>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
-  require_once "./controllers/footer_script.php";
+  require_once "../../controllers/footer_script.php";
 } else {
   // L'utilisateur n'est pas connecté en tant qu'administrateur, rediriger vers la page d'accueil ou afficher un message d'erreur
   //header("Location: index.php"); // Redirige vers la page d'accueil

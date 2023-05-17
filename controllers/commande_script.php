@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
         $panier->add($cmd);
         // die('le produit a bien été ajouté au panier <a href="plats.php">retour au plats</a>');
         $_SESSION['flash']['success'] = 'votre plats a bien été ajouter';
-        header('Location: ../plats.php');
+        header('Location: ../../content/user/plats.php');
     } else {
         die("Ce produit n'existe pas");
     }

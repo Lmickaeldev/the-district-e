@@ -5,7 +5,7 @@ use App\Autoloader;
 use App\Models\PlatsModel;
 
 
-require_once "./Autoloader.php";
+require_once "../../Autoloader.php";
 Autoloader::register();
 
 $platmodel = new PlatsModel();
@@ -14,8 +14,8 @@ $platmodel = new PlatsModel();
 $plat = $platmodel->findAll();
 // var_dump($plat);
 
-require_once "./controllers/head_script.php";
-require_once "./controllers/nav_script.php";
+require_once "../../controllers/head_script.php";
+require_once "../../controllers/nav_script.php";
 ?>
 <?php if(isset($_SESSION['flash']['success'])) {
     $message = $_SESSION['flash']['success'];
@@ -34,7 +34,7 @@ require_once "./controllers/nav_script.php";
                 
                     <h5 class="card-header"><?= $obj->libelle ?></h5>
                     <div class="imgplat">
-                        <img src="assets/images/food/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>">
+                        <img src="../../assets/images/food/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>">
                     </div>
                     <!-- <p><?= $obj->description ?></p> -->
                     <p class="price"><?= number_format($obj->prix,2,',')  ?> €</p>
@@ -55,5 +55,5 @@ require_once "./controllers/nav_script.php";
 
 
 <?php
-require_once"./controllers/footer_script.php";
+require_once"../../controllers/footer_script.php";
 ?>

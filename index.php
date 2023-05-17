@@ -59,6 +59,7 @@ require_once "./controllers/nav_script.php";
 </div>
 
 <div class="container">
+<h1 class="desctype">Nos meileurs plats</h1>
     <div class="row cate">
         <?php foreach ($most_plat as $mplat) :
             $obj = (object) $mplat; ?>

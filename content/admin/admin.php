@@ -8,15 +8,15 @@ use App\Models\CommandesModel;
 use App\Models\PlatsModel;
 use App\Models\UtilisateursModel;
 
-require_once "./Autoloader.php";
+require_once "../../Autoloader.php";
 Autoloader::register();
 
 if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
     // L'utilisateur est connecté en tant qu'administrateur, permettre l'accès à la page d'administration
 ?>
     <?php
-    require_once "./controllers/head_script.php";
-    require_once "./controllers/nav_script.php";
+    require_once "../../controllers/head_script.php";
+    require_once "../../controllers/nav_script.php";
     $platmodel = new PlatsModel;
     $catmodel = new CategoriesModel;
     $utimodel = new UtilisateursModel;
@@ -84,11 +84,11 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
                                 <td><input type="checkbox" name="active" <?php if ($obj->active) echo 'checked'; ?> disabled class="disabled-checkbox">
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm " href="update.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> modifier</a>
+                                    <a class="btn btn-primary btn-sm " href="../../update.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> modifier</a>
 
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm " onClick="return confirm('supprimer utilisateurs ?')" href="/controllers/deletecat.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> supprimer</a>
+                                    <a class="btn btn-primary btn-sm " onClick="return confirm('supprimer utilisateurs ?')" href="../../controllers/deletecat.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> supprimer</a>
 
                                 </td>
                             </tr>
@@ -102,7 +102,7 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
 
         <div class="tab-pane" id="tab2" role="tabpanel">
             <h1>plats</h1>
-            <a class="btn btn-primary btn-sm " href="update.php?id='.$item['id'].'">ajouter Plat</a>
+            <a class="btn btn-primary btn-sm " href="../../update.php?id='.$item['id'].'">ajouter Plat</a>
             <div class="row cat">
                 <table class="tab">
                     <thead>
@@ -126,10 +126,10 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
                                 <td><?= $obj->prix ?> €</td>
 
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="platupdate.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> Modifier</a>
+                                    <a class="btn btn-primary btn-sm" href="../../platupdate.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> Modifier</a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm " onClick="return confirm('supprimer utilisateurs ?')" href="/controllers/deletplat.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> supprimer</a>
+                                    <a class="btn btn-primary btn-sm " onClick="return confirm('supprimer utilisateurs ?')" href="../../controllers/deletplat.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> supprimer</a>
 
                                 </td>
                             </tr>
@@ -175,10 +175,10 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
 
 
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="update.php?id='.$item['id'].'"><span class="bi-pencil"></span> Modifier</a>
+                                    <a class="btn btn-primary btn-sm" href="../../update.php?id='.$item['id'].'"><span class="bi-pencil"></span> Modifier</a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm " onClick="return confirm('supprimer utilisateurs ?')" href="/controllers/deletcom.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> supprimer</a>
+                                    <a class="btn btn-primary btn-sm " onClick="return confirm('supprimer utilisateurs ?')" href="../../controllers/deletcom.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> supprimer</a>
 
                                 </td>
                             </tr>
@@ -193,7 +193,7 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
         <div class="tab-pane" id="tab4" role="tabpanel">
 
             <h1>utilisateurs</h1>
-            <a class="btn btn-primary btn-sm " href="update.php?id='.$item['id'].'">ajouter utilisateur</a>
+            <a class="btn btn-primary btn-sm " href="../../update.php?id='.$item['id'].'">ajouter utilisateur</a>
             <div class="row cate">
                 <table class="tab">
                     <thead>
@@ -224,10 +224,10 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
 
 
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="update.php?id='.$item['id'].'"><span class="bi-pencil"></span> Modifier</a>
+                                    <a class="btn btn-primary btn-sm" href="../../update.php?id='.$item['id'].'"><span class="bi-pencil"></span> Modifier</a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm " onClick="return confirm('supprimer utilisateurs ?')" href="/controllers/deleteuser.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> supprimer</a>
+                                    <a class="btn btn-primary btn-sm " onClick="return confirm('supprimer utilisateurs ?')" href="../../controllers/deleteuser.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> supprimer</a>
                                 </td>
                             </tr>
 
@@ -245,13 +245,13 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
 
 
     <?php
-    require_once "./controllers/footer_script.php";
+    require_once "../../controllers/footer_script.php";
     ?>
 
 <?php
 } else {
     // L'utilisateur n'est pas connecté en tant qu'administrateur, rediriger vers la page d'accueil ou afficher un message d'erreur
-    header("Location: index.php"); // Redirige vers la page d'accueil
+    header("Location: ../../index.php"); // Redirige vers la page d'accueil
     exit(); // Quitte le script pour éviter toute exécution supplémentaire
 }
 ?>

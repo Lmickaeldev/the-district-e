@@ -1,12 +1,12 @@
 <?php
 session_start();
   
- include_once"./controllers/head_script.php";
- include_once"./controllers/nav_script.php";
+ include_once"../../controllers/head_script.php";
+ include_once"../../controllers/nav_script.php";
  
  
 ?>
-<script src="/assets/javascript/script.js"></script>
+<script src="../../assets/javascript/script.js"></script>
         <div class="container">
 
        
@@ -31,7 +31,7 @@ session_start();
                 <div class="col-9 mx-auto mt-4">
                     <!-- On a besoin des deux attributs - "action" et "post" -->
                     <!-- Quand le formulaire sera soumis, les données seront envoyées en post au fichier php "login.php" -->
-                    <form action="./controllers/connexion_script.php" method="post" novalidate onsubmit="return validate();"> 
+                    <form action="../../controllers/connexion_script.php" method="post" novalidate onsubmit="return validate();"> 
                         <div class="row mb-3">
                           <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                           <div class="col-sm-10">
@@ -60,5 +60,5 @@ session_start();
 	</body>
 </html>
 <?php
-include_once"./controllers/footer_script.php";
+include_once"../../controllers/footer_script.php";
 ?>

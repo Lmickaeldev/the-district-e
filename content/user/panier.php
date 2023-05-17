@@ -5,10 +5,10 @@ use App\Autoloader;
 use App\Models\PlatsModel;
 use App\Models\PanierModel;
 
-require_once "./Autoloader.php";
+require_once "../../Autoloader.php";
 Autoloader::register();
-require_once "./controllers/head_script.php";
-require_once "./controllers/nav_script.php";
+require_once "../../controllers/head_script.php";
+require_once "../../controllers/nav_script.php";
 $panier = new PlatsModel();
 $paniermodel = new PanierModel();
 
@@ -59,7 +59,7 @@ if (!empty($_SESSION['panier'])) {?>
                 ?>
                     <tr>
                         <td><?= $obj->libelle ?></td>
-                        <td><img src="assets/images/food/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>"></td>
+                        <td><img src="../../assets/images/food/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>"></td>
                         <td><?= $quantity ?></td>
                         <td><?= number_format($obj->prix, 2, ',') ?> €</td>
                         <td>
@@ -89,5 +89,5 @@ if (!empty($_SESSION['panier'])) {?>
 
 <?php
 
-require_once "./controllers/footer_script.php";
+require_once "../../controllers/footer_script.php";
 ?>

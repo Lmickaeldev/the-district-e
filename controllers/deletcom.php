@@ -13,5 +13,5 @@ $deluse =new CommandesModel();
 $del = $deluse->delete($id);
 
 TrtRedirection:
-    header("Location: ../admin.php");
+    header("Location: ../../content/admin/admin.php");
 ?>

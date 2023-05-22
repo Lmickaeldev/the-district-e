@@ -5,9 +5,9 @@ require_once "../../controllers/nav_script.php";
 ?>
 <div class="container contact">
 <div class="d-flex justify-content-center form-container mt-5 mb-5 pt-0 rounded mnb">
-		<form name="name" id="name" method="post" action="/controllers/contact_script.php" enctype="multipart/form-data">
+		<form name="contact" id="contact" method="post" action="/controllers/contact_script.php" enctype="multipart/form-data">
 			<div class=" input-row">
-			<label style="padding-top: 20px;">Nom</label> <span id="userName-info" class="info"></span><br /> 
+			<label style="padding-top: 20px;">Nom</label> <span id="userName" class="info"></span><br /> 
 			<input type="text" class="input-field" name="userName" id="userName" />
 	</div>
 	<div class="input-row">

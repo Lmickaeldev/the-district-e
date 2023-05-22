@@ -37,13 +37,13 @@ $stmt =$test->user_co($email);
         }else{
             $_SESSION['flash']['danger'] = 'Le mails ou mots de passe envoyées est invalides';
 
-            header('Location: ../connexion.php');
+            header('Location: ../content/user/connexion.php');
             
          }
     }else{
             $_SESSION['flash']['danger'] = 'Authentification impossible!';
 
-            header('Location: ../connexion.php');
+            header('Location: ../content/user/connexion.php');
             
          }
 

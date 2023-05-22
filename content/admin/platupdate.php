@@ -3,11 +3,11 @@
 use App\Autoloader;
 use App\Models\PlatsModel;
 
-require_once "./Autoloader.php";
+require_once "../../Autoloader.php";
 Autoloader::register();
 
-require_once "./controllers/head_script.php";
-require_once "./controllers/nav_script.php";
+require_once "../../controllers/head_script.php";
+require_once "../../controllers/nav_script.php";
 
 
 $platdetail = new PlatsModel();
@@ -18,7 +18,7 @@ $obj = (object) $plat;
 
 ?>
 <form method="post" action="/controllers/update_plat_script.php">
-    <input type="hidden" name="id" value="<?= $obj->id ?>"> <!-- call getId() on object -->
+    <input type="hidden" name="id" value="<?= $obj->id ?>"> 
     <label for="libelle">Libellé :</label>
     <input type="text" name="libelle" value="<?= $obj->libelle ?>"><br>
     <label for="description">Description :</label>
@@ -29,11 +29,14 @@ $obj = (object) $plat;
     <input type="text" name="image" value="<?= $obj->image ?>"><br>
     <label for="id_categorie">Catégorie :</label>
     <select name="id_categorie">
-        <?php foreach ($categories as $categorie) : ?>
+       <?php foreach ($categories as $categorie) : ?>
             <option value="<?= $categorie->id ?>" <?= ($categorie->id == $obj->id_categorie) ? 'selected' : '' ?>>
                 <?= $categorie->libelle ?>
             </option>
-        <?php endforeach ?>
+        <?php  endforeach ?> -->
+        <?php
+        var_dump($categories);
+        ?>
     </select><br>
     <label for="active">Actif :</label>
     <input type="checkbox" name="active" <?= ($obj->active) ? 'checked' : '' ?>><br>

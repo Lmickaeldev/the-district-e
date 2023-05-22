@@ -34,7 +34,7 @@ require_once "./controllers/nav_script.php";
 ?>
 <div class="row">
     <div id="searchid">
-        <form class="d-flex" method="GET" action="recherche_plat.php">
+        <form class="d-flex" method="GET" action="./content/user/recherche_plat.php">
             <input class="form-control me-2" type="search" placeholder="je cherche..." aria-label="Search" id="search" name="search">
             <button class="btn btn-outline-success" type="submit">rechercher</button>
         </form>

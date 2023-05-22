@@ -3,7 +3,7 @@ session_start();
 use App\Autoloader;
 use App\Models\PlatsModel;
 
-require_once "./Autoloader.php";
+require_once "../../Autoloader.php";
 Autoloader::register();
 
 if (!isset($_GET['search'])) {
@@ -20,8 +20,8 @@ if (!isset($_GET['search'])) {
 
 // Afficher les plats
 //var_dump($plats);
-require_once "./controllers/head_script.php";
-require_once "./controllers/nav_script.php";
+require_once "../../controllers/head_script.php";
+require_once "../../controllers/nav_script.php";
 ?>
 <div class="container">
     <div class="row search-form">
@@ -37,21 +37,17 @@ require_once "./controllers/nav_script.php";
             <div class="col-lg-4 card  ">
                 <h5 class="card-header"><?= $obj->libelle ?></h5>
                 <div class="imgplat">
-                    <img src="assets/images/food/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>">
+                    <img src="../../assets/images/food/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>">
                 </div>
                 <p><?= $obj->description ?></p>
-                <p><?= $obj->prix ?> €</p>
-                <a class="btn btn-primary" href="platsdetail.php?id=<?= $obj->id ?>"></a>
+                <p><?= number_format($obj->prix,2,',')  ?> €</p>
+                
             </div>
         <?php endforeach; ?>
     </div>
 </div>
 
 
-
-
-<h1 style="text-align:center;color:red;">Problème de prix pas de float !! voir avec le formateur</h1>
-
 <?php
-require_once"./controllers/footer_script.php";
+require_once"../../controllers/footer_script.php";
 ?>

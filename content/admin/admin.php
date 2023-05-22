@@ -84,10 +84,7 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
                                 <td><input type="checkbox" name="active" <?php if ($obj->active) echo 'checked'; ?> disabled class="disabled-checkbox">
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm " href="../../update.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> modifier</a>
-
-                                </td>
-                                <td>
+                                    <a class="btn btn-primary btn-sm " href="../../content/admin/cateupdate.php?id=<?= $obj->id ?>"><span class=""></span> modifier</a>
                                     <a class="btn btn-primary btn-sm " onClick="return confirm('supprimer utilisateurs ?')" href="../../controllers/deletecat.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> supprimer</a>
 
                                 </td>
@@ -126,7 +123,7 @@ if (isset($_SESSION['auth']) && $_SESSION['auth']['role_id'] == 2) {
                                 <td><?= $obj->prix ?> €</td>
 
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="../../platupdate.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> Modifier</a>
+                                    <a class="btn btn-primary btn-sm" href="../../content/admin/platupdate.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> Modifier</a>
                                 </td>
                                 <td>
                                     <a class="btn btn-primary btn-sm " onClick="return confirm('supprimer utilisateurs ?')" href="../../controllers/deletplat.php?id=<?= $obj->id ?>"><span class="bi-pencil"></span> supprimer</a>

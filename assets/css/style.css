@@ -6,6 +6,9 @@
 body{
     background: #abd1c6 !important;
 }
+a{
+    text-decoration: none;
+}
 /* main */
 .container-fluid{
     margin: 0 !important;
@@ -113,9 +116,13 @@ body{
 .footer .logo i{
     font-size: 60px;
     margin-right: 10px;
+    text-decoration: none;
+    color: #f9bc60;
 }
-.footer p{
+.footer a{
     margin-left: 10px;
+    text-decoration: none;
+    color: #f9bc60;
 }
 .footer .logo h4 {
     margin: 0 auto ;
@@ -261,4 +268,7 @@ body{
 }
 .contact{
     height: 65vh;
+}
+.politique{
+    margin: 50px 100px;
 }

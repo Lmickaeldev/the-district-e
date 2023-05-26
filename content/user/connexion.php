@@ -22,6 +22,7 @@ session_start();
 <?php }
 ?>
 
+            <div class="container categorie">
             <div class="row">
                 <div class="col-8 mx-auto mt-5 mb-5">
                     <h4 class="text-center">connexion</h4>
@@ -54,6 +55,7 @@ session_start();
                 </div>
             </div>
         </div>
+            </div>
         
 		
 	</body>

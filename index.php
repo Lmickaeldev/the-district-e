@@ -34,7 +34,7 @@ require_once "./controllers/nav_script.php";
 ?>
 <div class="row">
     <div id="searchid">
-        <form class="d-flex" method="GET" action="./content/user/recherche_plat.php">
+        <form class="d-flex search" method="GET" action="./content/user/recherche_plat.php">
             <input class="form-control me-2" type="search" placeholder="je cherche..." aria-label="Search" id="search" name="search">
             <button class="btn btn-outline-success" type="submit">rechercher</button>
         </form>
@@ -51,7 +51,7 @@ require_once "./controllers/nav_script.php";
                 <div class="imgcat">
                     <img src="assets/images/category/<?= $obj->image ?>" class="card-img-bottom" alt="<?= $obj->image ?>">
                 </div>
-                <a class="btn" href="categoriedetails.php?id=<?= $obj->id ?>">consulter</a>
+                <a class="btn" href="../../content/user/categoriedetails.php?id=<?= $obj->id ?>">consulter</a>
                 
             </div>
         <?php endforeach; ?>

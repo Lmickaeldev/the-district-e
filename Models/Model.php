@@ -11,8 +11,12 @@ class Model extends Db
 
     // intance de Db
     private $db;
-    //
-    //function pour les 3 plats les plus vendu=populaire
+    
+    /**
+     * function pour les 3 plats les plus vendu=populaire
+     *
+     * @return void
+     */
         public function most_pop_plat(){     
             $query = $this->requete('SELECT COUNT(*) AS nbr_vente, plats.libelle, plats.image, plats.id, plats.prix 
             FROM commandes JOIN plats ON plats.id = commandes.id 
@@ -23,7 +27,12 @@ class Model extends Db
         return $query->fetchAll();
         }
 
-    //function ppour afficher les comande en fonction de leur etat,le nom du client trié par ordre decroisant
+    
+    /**
+     * function ppour afficher les comande en fonction de leur etat,le nom du client trié par ordre decroisant
+     *
+     * @return void
+     */
         public function comd()
         {
             $query = $this->requete('    SELECT commandes.id, plats.libelle AS nom_plat, categories.libelle AS categorie, commandes.quantite, commandes.total, commandes.date_commande, livraison.nom AS etat, utilisateurs.username AS nom_client FROM commandes JOIN plats ON commandes.id_plat = plats.id JOIN categories ON plats.id_categorie = categories.id JOIN livraison ON commandes.etat = livraison.id JOIN utilisateurs ON commandes.id_client = utilisateurs.id ORDER BY `commandes`.`date_commande` DESC;
@@ -31,25 +40,36 @@ class Model extends Db
         return $query->fetchAll();
         }
 
-    //SELECT commandes.id, plats.libelle AS nom_plat, categories.libelle AS categorie, commandes.quantite, commandes.total, commandes.date_commande, livraison.nom AS etat, utilisateurs.username AS nom_client FROM commandes JOIN plats ON commandes.id_plat = plats.id JOIN categories ON plats.id_categorie = categories.id JOIN livraison ON commandes.etat = livraison.id JOIN utilisateurs ON commandes.id_client = utilisateurs.id ORDER BY `commandes`.`date_commande` DESC;
 
-    //requete pour affiché les commande pour le client  
+    
+    /**
+     * function qui permets de recuperer les commande en fonction de l'id client
+     *
+     * @param integer $id
+     * @return void
+     */
     public function comdid(int $id)
     {
-        return $this->requete("SELECT commandes.id, plats.libelle AS nom_plat, categories.libelle AS categorie, commandes.quantite, commandes.total, commandes.date_commande, livraison.nom AS etat, utilisateurs.username AS nom_client FROM commandes JOIN plats ON commandes.id_plat = plats.id JOIN categories ON plats.id_categorie = categories.id JOIN livraison ON commandes.etat = livraison.id JOIN utilisateurs ON commandes.id_client = utilisateurs.id  WHERE id_client = $id")->fetch();
+        return $this->requete("SELECT commandes.id, plats.libelle AS nom_plat, categories.libelle AS categorie, commandes.quantite, commandes.total, commandes.date_commande, livraison.nom AS etat, utilisateurs.username AS nom_client FROM commandes JOIN plats ON commandes.id_plat = plats.id JOIN categories ON plats.id_categorie = categories.id JOIN livraison ON commandes.etat = livraison.id JOIN utilisateurs ON commandes.id_client = utilisateurs.id  WHERE id_client = $id")->fetchall();
     }
 
     //le read du CRUD
-    //on recupere les données
+    /**
+     * functon qui permet le read des donné de la table en ALL
+     *
+     * @return void
+     */
     public function findAll()
     {
         $query = $this->requete('SELECT * FROM ' . $this->table);
         return $query->fetchAll();
     }
-    
-
-
-    //afficher tout les données de la table
+    /**
+     * function permetant de recuperer, d'affiché les donné de la tble ""
+     *
+     * @param array $criteres
+     * @return void
+     */
     public function findBy(array $criteres)
     {
         $champs =[];
@@ -70,12 +90,22 @@ class Model extends Db
 
         return $this->requete('SELECT * FROM ' .$this->table.' WHERE '. $liste_champs,$valeurs)->fetchAll();
     }
-    //affiché un id
+    /**
+     * function qui permet le read en fonction d'un id
+     *
+     * @param integer $id
+     * @return void
+     */
     public function find(int $id)
     {
         return $this->requete("SELECT * FROM  {$this->table} WHERE id = $id")->fetch();
     }
-    //le  create du CRUD
+    /**
+     * function permetant la creation du crud
+     *
+     * @param model $model
+     * @return void
+     */
     public function create(model $model)
     {   
         
@@ -101,7 +131,13 @@ class Model extends Db
         return $this->requete('INSERT INTO ' .$this->table.' ('. $liste_champs.')VALUES('.$liste_inter.')', $valeurs);
         
     }
-    //update du CRUD
+    /**
+     * function pertant l'update
+     *
+     * @param integer $id
+     * @param model $model
+     * @return void
+     */
     public function update(int $id,model $model)
     {   
         
@@ -125,7 +161,12 @@ class Model extends Db
         return $this->requete('UPDATE ' .$this->table.' SET '. $liste_champs.' WHERE id= ?', $valeurs);
         
     }
-    //le delete du CRUD
+    /**
+     * functon permetant le delete
+     *
+     * @param integer $id
+     * @return void
+     */
     public function delete(int $id)
     {
         return $this->requete("DELETE FROM {$this->table} WHERE id = ? ", [$id]);
@@ -148,36 +189,7 @@ class Model extends Db
         }
     }
 
-    // methode d'hydratation CREATE
-    public function hydrateC(array $donnees){
-        foreach($donnees as $key => $value){
-            //on recupere le nom du setter corespondant a la clef (key)
-            //libelle -> setlibelle
-            $setter ='set'.ucfirst($key);
-        //on verifie si le setter existe
-        if (method_exists($this, $setter)) {
-            //on appel le setter
-            $this->$setter($value);
-        }    
-        }
-        return $this;
-    }
-    // methode d'hydratation update
-    public function hydrate(array $donnees){
-        foreach($donnees as $key => $value){
-            //on recupere le nom du setter correspondant a la clef (key)
-            //libelle -> setLibelle
-            $setter = 'set'.ucfirst($key);
     
-            //on verifie si le setter existe
-            if (method_exists($this, $setter)) {
-                //on appel le setter
-                $this->$setter($value);
-            }
-        }
-        return $this;
-    }
-
     public function user_co($email){
         // on recupere l'instance de Db
         $this->db = Db::getInstance();
@@ -187,7 +199,12 @@ class Model extends Db
         $query->closeCursor();
         return $tab;
       }
-    
+    /**
+     * function permetant la recherche de plat
+     *
+     * @param [type] $search
+     * @return void
+     */
       function search_plat($search){
         $this->db = Db::getInstance();
         $query = $this->db->prepare('SELECT * FROM plats WHERE libelle LIKE ? AND LOWER(plats.active) = "1"');
@@ -197,6 +214,12 @@ class Model extends Db
         $query->closeCursor();
         return $tab;
     }
+    /**
+     * function permetant la recherche de categorie
+     *
+     * @param [type] $search
+     * @return void
+     */
     function search_cat($search){
         $this->db = Db::getInstance();
         $query = $this->db->prepare('SELECT * FROM categories WHERE libelle LIKE ? AND LOWER(plats.active) = "1"');
@@ -206,7 +229,12 @@ class Model extends Db
         $query->closeCursor();
         return $tab;
     }
-    
+    /**
+     * function permetant l'ajouts des plats au paniers
+     *
+     * @param [type] $ids
+     * @return void
+     */
     public function panier($ids)
 {
     $this->db = Db::getInstance();

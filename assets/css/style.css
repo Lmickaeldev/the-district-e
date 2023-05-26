@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Poppins,sans-serif;
+    list-style: none;
 }
 body{
     background: #abd1c6 !important;
@@ -13,17 +15,18 @@ a{
 .container-fluid{
     margin: 0 !important;
     padding: 0 !important;
- }
+}
 
- .btn {
+.btn {
      color: #f9bc60 !important;
      background-color: #004643 !important;
      border-color: #f9bc60 !important;
+     font-weight: bold;
      
- }
+}
 .btn:hover {
-    color: #f9bc60 !important;
-    background-color: #abd1c6 !important;
+    color: #004643 !important;
+    background-color: #f9bc60 !important;
     border-color: #004643 !important;
 }
 /*navbar */
@@ -65,7 +68,7 @@ a{
     background: url(/assets/images/the_district_brand/logo_transparent.png) no-repeat center;
 }
 
-#search .d-flex{
+.search{
     display: flex;
     margin: auto;
     height: 200px;
@@ -73,8 +76,15 @@ a{
     justify-content: flex-end;
     width: 450px;
 }
+.search input{
+    background-color: #f9bc60;
+    font-weight: bold;
+}
 .desctype{
     margin-top: 10px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 /*menu*/
 .selection h1{
@@ -189,6 +199,8 @@ a{
     text-align: center;
     background-color: #004643;
     color: #f9bc60;
+    font-weight: bold;
+    text-decoration: underline;
 }
 .card img{   
     max-width: 100%;
@@ -203,7 +215,9 @@ a{
     width: auto;
     justify-content: center;
 }
-
+.categorie{
+    height: 70vh;
+}
 .tab-content{
     height: 100vh;
 }
@@ -271,4 +285,12 @@ a{
 }
 .politique{
     margin: 50px 100px;
+}
+/* prfil */
+.profil{
+    display: flex;
+    flex-direction: column;
+}
+.commandetab{
+    width: 100%;
 }

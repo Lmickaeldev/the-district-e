@@ -3,7 +3,7 @@
 use App\Autoloader;
 use App\Models\UtilisateursModel;
 
-require_once "../../Autoloader.php";
+require_once "../Autoloader.php";
 Autoloader::register();
 
 $id = $_GET['id'];

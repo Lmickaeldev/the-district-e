@@ -27,7 +27,6 @@ try {
     $mail->Host = 'smtp.gmail.com'; //smtp de gmail
     $mail->SMTPAuth = true; // passage en 1 pour l'authentification
     $mail->Port = 465;
-    $mail->Host = 'smtp.gmail.com';
     $mail->Username="mickaeldevtest@gmail.com";
     $mail->Password="5rjn8x9YL3As3YL4";
     $mail->SMTPSecure = "ssl";
@@ -37,7 +36,7 @@ try {
     $mail->setFrom($useremail);
     
     // Destinataires
-    $mail->addAddress('', 'The District Company');
+    $mail->addAddress('mickaeldevtest@gmail.com', 'The District Company');
 
     // Adresse de réponse
     $mail->addReplyTo($useremail, "Reply");

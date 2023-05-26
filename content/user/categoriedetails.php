@@ -17,7 +17,7 @@ $categoriedet = $categoriedet->findBy(['id_categorie' => $id,]);
 require_once "../../controllers/head_script.php";
 require_once "../../controllers/nav_script.php";
 ?>
-<div class="container">
+<div class="container categorie">
     <div class="row cate">
         <?php foreach ($categoriedet as $platdet) :
             $obj = (object) $platdet; ?>

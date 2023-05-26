@@ -61,17 +61,24 @@ if (!isset($_SESSION['auth']) && isset($_SESSION['panier'])) {
         // Configuration du serveur SMTP
         $mail->isSMTP();
         $mail->Host = 'localhost';
-        $mail->SMTPAuth = false;
-        $mail->Port = 1025;
-    
+        $mail->SMTPAuth = true;
+        $mail->Port = 465;
+        $auth_username="mickaeldevtest@gmail.com";
+        $auth_password="5rjn8x9YL3As3YL4";
+
+
+
+
+
+
         // Expéditeur du mail
-        $mail->setFrom('from@thedistrict.com', 'The District Company');
+        $mail->setFrom('mickaeldevtest@gmail.com', 'The District Company');
     
         // Destinataires
         $mail->addAddress($_SESSION['auth']['mail'],$_SESSION['auth']['username']);
     
         // Adresse de réponse
-        $mail->addReplyTo("reply@thedistrict.com", "Reply");
+        $mail->addReplyTo("mickaeldevtest@gmail.com", "Reply");
     
     
         // Format HTML

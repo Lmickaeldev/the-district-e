@@ -278,10 +278,15 @@ a{
     border-radius: 5px;
 }
 .platdet{
-    height: 70vh;
+    height: 100vh;
 }
 .contact{
     height: 65vh;
+    display: flex;
+    justify-content: center;
+}
+.contact form{
+    width: 100%;
 }
 .politique{
     margin: 50px 100px;

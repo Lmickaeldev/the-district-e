@@ -44,16 +44,6 @@ require_once "../../controllers/nav_script.php";
         <?php endforeach; ?>
     </div>
 </div>
-<h1 style="text-align:center;color:red;"> Probleme de prix pas de float !! voir avec le formateur </h1>
-
-
-
-
-
-
-
-
-
 <?php
 require_once"../../controllers/footer_script.php";
 ?>

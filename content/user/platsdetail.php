@@ -23,36 +23,23 @@ $obj = (object) $plat;
 ?>
 
 <div class="container platdet">
-<a class="btn btn-primary mt-4" href="javascript:history.back()">retours</a>
+    <a class="btn btn-primary mt-4" href="javascript:history.back()">retours</a>
     <div class=" row ">
-    <div class="col-md-6 detailplat">
-        <h2><?= $obj->libelle ?></h2>
-        <div class="">
-            <img src="../../assets/images/food/<?= $obj->image ?>" class="img-thumbnail" alt="<?= $obj->image ?>">
-        </div>
+        <div class="col-md-6 detailplat">
+            <h2><?= $obj->libelle ?></h2>
+            <div class="">
+                <img src="../../assets/images/food/<?= $obj->image ?>" class="img-thumbnail" alt="<?= $obj->image ?>">
+            </div>
 
-    </div>
-    <div class="col-md-6 mt-5 detailplat">
-        <p><?= $obj->description ?></p>
-        <p class="pricedetail"><?= $obj->prix ?> €</p>
-        <a class="btn btn-primary" href="/controllers/commande_script.php?id=<?= $obj->id ?>">commander</a>
-    </div>
+        </div>
+        <div class="col-md-6 mt-5 detailplat">
+            <p><?= $obj->description ?></p>
+            <p class="pricedetail"><?= $obj->prix ?> €</p>
+            <a class="btn btn-primary" href="/controllers/commande_script.php?id=<?= $obj->id ?>">commander</a>
+        </div>
     </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 require_once "../../controllers/footer_script.php";
 ?>
